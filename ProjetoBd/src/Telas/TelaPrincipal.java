@@ -43,11 +43,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tela Principal");
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
 
         javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
         painel.setLayout(painelLayout);
@@ -119,17 +114,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
             System.exit(sair);
         }
     }//GEN-LAST:event_menuSistemaSairActionPerformed
-
     
-    //Item de menu para saber sobre o sistema
+    //Item de menu para saber sobre o sistema   
     private void menuSistemaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSistemaSobreActionPerformed
-        JOptionPane.showMessageDialog(this, "Desenvolvido por\n\nAdelly Lima\nRenato Lélis\nYanka Santos\n\nProfessor: Melo","Sobre",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Desenvolvido por\n\nAdelly Lima\nRenato Lélis\nYanka Santos\n\nProfessor: Melo","Sobre",JOptionPane.INFORMATION_MESSAGE);//teste
     }//GEN-LAST:event_menuSistemaSobreActionPerformed
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_formWindowActivated
 
     /**
      * @param args the command line arguments
