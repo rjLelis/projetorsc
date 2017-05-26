@@ -5,8 +5,6 @@
  */
 package Telas;
 
-import java.text.DateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -55,7 +53,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGap(0, 473, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        jMenuBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         menuCadastro.setText("Cadastros");
         menuCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -117,7 +115,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     //Item de menu para saber sobre o sistema   
     private void menuSistemaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSistemaSobreActionPerformed
-        JOptionPane.showMessageDialog(this, "Desenvolvido por\n\nAdelly Lima\nRenato Lélis\nYanka Santos\n\nProfessor: Melo","Sobre",JOptionPane.INFORMATION_MESSAGE);//teste
+        JOptionPane.showMessageDialog(this, "Desenvolvido por\n\nAdelly Lima\nRenato Lélis\nYanka Santos\n\nProfessor : Melo","Sobre",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_menuSistemaSobreActionPerformed
 
     /**
@@ -159,7 +157,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenuItem menuCadastroCliente;
-    private javax.swing.JMenuItem menuCadastroFuncionario;
+    public static javax.swing.JMenuItem menuCadastroFuncionario;
     private javax.swing.JMenu menuSistema;
     private javax.swing.JMenuItem menuSistemaSair;
     private javax.swing.JMenuItem menuSistemaSobre;

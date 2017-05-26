@@ -9,41 +9,45 @@ import java.sql.*;
 import Conexao.ModuloConexao;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author 01211062
  */
 public class TelaLogin extends javax.swing.JFrame {
 
-    /*Connection conexao = null;
+    Connection conexao = null;
     PreparedStatement pst = null;
-    Resultset rs = null;*/
+    ResultSet rs = null;
     /**
      * Creates new form TelaLogin
      */
     public TelaLogin() {
         initComponents();
-        //conexao = ModuloConexao.conector();
-        //String con = String.format("%s",conexao != null ? "CONECTADO":DESCONECTADO);
-        //lblConexao.setText(con);
+        conexao = ModuloConexao.conector();
+        String con = String.format("%s",conexao != null ? "CONECTADO":"DESCONECTADO");
+        lblConexao.setText(con);
     }
-
+    
     private void logar() {
-        String sql = "SELECT * from representante where id_usuario = ? and senha = ?";//TERMINAR
+        String sql = "SELECT * from representante where id_usuario = ? and senha = ?";
         try {
-            //pst = conexao.prepareStatement(sql);
-            //pst.setString(1,txtUsuario.getText());
-            //pst.setString(2,txtUsuarioSenha.getText());
-            //rs = pst.executeQuery();
-            /*if(rs.next()){
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1,txtUsuario.getText());
+            pst.setString(2,txtUsuarioSenha.getText());
+            rs = pst.executeQuery();
+            if(rs.next()){
                 TelaPrincipal principal = new TelaPrincipal();
+                String representante = rs.getString(10);
+                if(representante == null){
+                    TelaPrincipal.menuCadastroFuncionario.setEnabled(true);
+                }
                 principal.setVisible(true);
                 this.dispose();
                 conexao.close();
-                if()
             }else{
-                JOptionPane.showMessageDialog(this,"Usuário\Senha inválido");
-            }*/
+                JOptionPane.showMessageDialog(this,"Usuário/senha inválido(s)","ERRO",JOptionPane.ERROR_MESSAGE);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this,e);
         }
@@ -69,6 +73,10 @@ public class TelaLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setBackground(new java.awt.Color(204, 204, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(new java.awt.Color(204, 204, 255));
+        setResizable(false);
 
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblUsuario.setText("USUÁRIO");
@@ -120,13 +128,10 @@ public class TelaLogin extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblUsuario)))
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUsuario))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtUsuarioSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -139,18 +144,13 @@ public class TelaLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        btnEntrar.getAccessibleContext().setAccessibleDescription("ENTRAR NO SISTEMA");
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    //Botão de entrar no sistema
+    //Botão de entrar no sistema//terminar!
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         this.logar();
-        TelaPrincipal principal = new TelaPrincipal();
-        principal.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
