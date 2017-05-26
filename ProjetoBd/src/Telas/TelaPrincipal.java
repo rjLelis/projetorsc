@@ -123,7 +123,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     //Item de menu para saber sobre o sistema
     private void menuSistemaSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSistemaSobreActionPerformed
-        JOptionPane.showMessageDialog(this, "Desenvolvido por\n\nAdelly Lima\nRenato Lélis\nYanka Santos\n\nProfessor: Melo");
+        JOptionPane.showMessageDialog(this, "Desenvolvido por\n\nAdelly Lima\nRenato Lélis\nYanka Santos\n\nProfessor: Melo","Sobre",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_menuSistemaSobreActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
