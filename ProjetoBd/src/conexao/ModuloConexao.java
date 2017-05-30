@@ -9,12 +9,10 @@ import java.sql.*;
 
 /**
  *
- * @author Lelis
+ * @author adell
  */
 public class ModuloConexao {
-
-    // Método responsavel por estabelecer a conexão com o banco
-    public static Connection conector() {
+     public static Connection conector() {
 
         Connection conexao;
 
@@ -34,3 +32,4 @@ public class ModuloConexao {
         }
     }
 }
+
